@@ -3,190 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Live Tv & Sport's </title>
-    <!-- Bootstrap CSS for Premium Styling -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Video.js Styles -->
-    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <title>BD LIVE TV - Premium Streaming Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@0.5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
+    
     <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary-color: #6366f1;
+            --accent-color: #06b6d4;
+        }
+
         body {
-            background-color: #0f172a;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Hind Siliguri', sans-serif;
+            background: var(--bg-gradient);
+            color: #f8fafc;
+            min-height: 100vh;
+            padding-bottom: 50px;
         }
-        .navbar {
-            background-color: #1e293b !important;
-            border-bottom: 2px solid #3b82f6;
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .video-container {
-            background-color: #000;
-            border-radius: 12px;
+
+        /* Video Player Wrapper */
+        .player-wrapper {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(99, 102, 241, 0.1);
         }
+
+        .video-js {
+            width: 100% !important;
+            height: auto;
+            aspect-ratio: 16/9;
+        }
+
+        .current-playing-title {
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid var(--card-border);
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            color: #e2e8f0;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            border-radius: 4px;
+        }
+
+        /* Premium Channel Card */
         .channel-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .channel-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(99, 102, 241, 0.15);
+        }
+
+        .channel-card:active {
+            transform: scale(0.95);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.6rem;
             transition: all 0.3s ease;
         }
-        .channel-card:hover {
-            transform: translateY(-5px);
-            border-color: #3b82f6;
-            background-color: #273549;
+
+        .channel-card:hover .icon-box {
+            background: rgba(99, 102, 241, 0.2);
+            color: #fff !important;
         }
-        .channel-logo {
-            font-size: 2.5rem;
-            color: #3b82f6;
-        }
-        .category-title {
-            border-left: 4px solid #3b82f6;
-            padding-left: 10px;
-            margin-top: 30px;
-            margin-bottom: 20px;
-        }
-        .live-badge {
+
+        /* Live Badge Animation */
+        .live-pulse {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
             background-color: #ef4444;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            animation: blink 1.5s infinite;
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 0 rgba(239, 68, 68, 0.4);
+            animation: pulse 1.5s infinite;
+            vertical-align: middle;
         }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        .badge-live {
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-info" href="#"><i class="fa-solid fa-play-circle me-2"></i>BD LIVE TV & SPORTS</a>
-            <span class="badge bg-danger"><i class="fa-solid fa-circle-dot me-1"></i>অনলাইন পোর্টাল</span>
+    <nav class="navbar navbar-dark bg-transparent py-4">
+        <div class="container text-center justify-content-center">
+            <span class="navbar-brand mb-0 h1 fs-2"><i class="fa-solid fa-play-circle me-2"></i>BD LIVE TV</span>
         </div>
     </nav>
 
-    <div class="container my-4">
-        <div class="row">
-            <!-- Left Side: Main Video Player -->
-            <div class="col-lg-8">
-                <div class="video-container">
-                    <video id="my-video" class="video-js vjs-default-skin vjs-16-9" controls preload="auto" width="100%">
-                        <source id="video-source" src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-9">
+                <div class="player-wrapper">
+                    <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" data-setup='{}'>
+                        <source src="https://live.bongobd.com/bongobd-tv-channels/somoy_tv_source/playlist.m3u8" type="application/x-mpegURL">
                     </video>
-                </div>
-                <h3 id="current-playing" class="fw-bold text-info my-2">এখন দেখছেন: লাইভ টেস্ট স্ট্রিম</h3>
-                <p class="text-muted"><i class="fa-solid fa-eye me-1"></i> বাফারিং হলে ২-৩ সেকেন্ড অপেক্ষা করুন।</p>
-            </div>
-
-            <!-- Right Side: Live Sports Section -->
-            <div class="col-lg-4">
-                <h4 class="category-title text-warning fw-bold"><i class="fa-solid fa-trophy me-2"></i>লাইভ খেলাধুলা (Sports)</h4>
-                <div class="row g-2">
-                    <!-- Sports Channel 1 -->
-                    <div class="col-12">
-                        <div class="channel-card p-3 position-relative d-flex align-items-center" onclick="changeChannel('লাইভ ক্রিকেট (সার্ভার ১)', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
-                            <span class="live-badge">LIVE</span>
-                            <div class="me-3 channel-logo text-success"><i class="fa-solid fa-baseball-bat-ball"></i></div>
-                            <div>
-                                <h6 class="mb-0 fw-bold">ক্রিকেট লাইভ ম্যাচ</h6>
-                                <small class="text-muted">টি-২০ / ওয়ানডে সিরিজ</small>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sports Channel 2 -->
-                    <div class="col-12 mt-2">
-                        <div class="channel-card p-3 position-relative d-flex align-items-center" onclick="changeChannel('লাইভ ফুটবল (সার্ভার ২)', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
-                            <span class="live-badge">LIVE</span>
-                            <div class="me-3 channel-logo text-danger"><i class="fa-solid fa-football"></i></div>
-                            <div>
-                                <h6 class="mb-0 fw-bold">ফুটবল লাইভ ম্যাচ</h6>
-                                <small class="text-muted">লাইভ টুর্নামেন্ট</small>
-                            </div>
-                        </div>
+                    <div class="current-playing-title d-flex align-items-center justify-content-between">
+                        <span><i class="fa-solid fa-satellite-dish text-primary me-2"></i> বর্তমানে চলছে: <span id="channel-name" class="text-info">সময় টিভি</span></span>
+                        <span class="badge bg-primary px-3 py-2 rounded-pill" style="font-size: 0.8rem;">Ultra HD</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <hr class="my-5" style="border-color: #334155;">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-9">
+                <h5 class="section-title">চলতি লাইভ খেলা</h5>
+                <div class="row g-4">
+                    
+                    <div class="col-6 col-md-4">
+                        <div class="channel-card p-4 text-center" onclick="changeChannel('BD vs AUS Live Match', 'এখানে_আপনার_সচল_m3u8_লিংক_দিন')">
+                            <div class="icon-box text-danger">
+                                <i class="fa-solid fa-circle-play"></i>
+                            </div>
+                            <h6 class="mb-2 fw-bold text-white">BD vs AUS Live</h6>
+                            <span class="badge-live"><span class="live-pulse"></span>LIVE NOW</span>
+                        </div>
+                    </div>
 
-        <!-- Bottom Section: Bangladeshi TV Channels -->
-        <h4 class="category-title text-info fw-bold"><i class="fa-solid fa-tv me-2"></i>বাংলাদেশি লাইভ টিভি চ্যানেল</h4>
-        <div class="row g-3">
-            <!-- Channel 1 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="channel-card p-3 text-center" onclick="changeChannel('সময় টিভি (Sample Stream)', 'http://stream-e30453a4b.nmbs.top/m3u/Kids/1f3e9e6679.m3u8')">
-                    <div class="channel-logo mb-2 text-warning"><i class="fa-solid fa-newspaper"></i></div>
-                    <h6 class="mb-0 fw-bold">সময় টিভি</h6>
-                    <small class="text-muted">খবরের চ্যানেল</small>
                 </div>
             </div>
-            <!-- Channel 2 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="channel-card p-3 text-center" onclick="changeChannel('যমুনা টিভি (Sample Stream)', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
-                    <div class="channel-logo mb-2 text-info"><i class="fa-solid fa-bolt"></i></div>
-                    <h6 class="mb-0 fw-bold">যমুনা টিভি</h6>
-                    <small class="text-muted">২৪ ঘণ্টা খবর</small>
-                </div>
-            </div>
-            <!-- Channel 3 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="channel-card p-3 text-center" onclick="changeChannel('জিটিভি / গাজি টিভি (Sample Stream)', 'http://27.124.71.27/T-Sports/index.m3u8')">
-                    <div class="channel-logo mb-2 text-primary"><i class="fa-solid fa-star"></i></div>
-                    <h6 class="mb-0 fw-bold">জিটিভি (GTV)</h6>
-                    <small class="text-muted">বিনোদন ও খেলা</small>
-                </div>
-            </div>
-            <!-- Channel 4 -->
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="channel-card p-3 text-center" onclick="changeChannel('চ্যানেল আই (Sample Stream)', 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">
-                    <div class="channel-logo mb-2 text-success"><i class="fa-solid fa-leaf"></i></div>
-                    <h6 class="mb-0 fw-bold">চ্যানেল আই</h6>
-                    <small class="text-muted">সংস্কৃতি ও নাটক</small>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <h5 class="section-title">বাংলাদেশি লাইভ টিভি চ্যানেল</h5>
+                <div class="row g-4">
+                    
+                    <div class="col-6 col-md-4">
+                        <div class="channel-card p-4 text-center" onclick="changeChannel('সময় টিভি', 'https://live.bongobd.com/bongobd-tv-channels/somoy_tv_source/playlist.m3u8')">
+                            <div class="icon-box text-warning">
+                                <i class="fa-solid fa-newspaper"></i>
+                            </div>
+                            <h6 class="mb-1 fw-bold text-white">সময় টিভি</h6>
+                            <small class="text-muted">খবর</small>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4">
+                        <div class="channel-card p-4 text-center" onclick="changeChannel('যমুনা টিভি', 'https://live.bongobd.com/bongobd-tv-channels/jamuna_tv_source/playlist.m3u8')">
+                            <div class="icon-box text-info">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <h6 class="mb-1 fw-bold text-white">যমুনা টিভি</h6>
+                            <small class="text-muted">খবর</small>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4">
+                        <div class="channel-card p-4 text-center" onclick="changeChannel('জিটিভি (GTV)', 'https://live.bongobd.com/bongobd-tv-channels/gtv_source/playlist.m3u8')">
+                            <div class="icon-box text-primary">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <h6 class="mb-1 fw-bold text-white">জিটিভি (GTV)</h6>
+                            <small class="text-muted">বিনোদন ও খেলা</small>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-    
-<div class="col-6 col-md-4 col-lg-3">
-    <div class="channel-card p-3 text-center" onclick="Sport's Tv('বাংলাদেশ বনাম অস্ট্রেলিয়া লাইভ', 'http://27.124.71.27/T-Sports/index.m3u8')">
-        <div class="channel-logo mb-2 text-danger"><i class="fa-solid fa-circle-play"></i></div>
-        <h6 class="mb-0 fw-bold">BD vs AUS Live</h6>
-        <small class="text-danger">● Live Now</small>
-    </div>
-</div>
-    
-    <!-- Footer -->
-    <footer class="text-center py-4 mt-5 style="background-color: #1e293b;">
-        <p class="mb-0 text-muted">&copy; 2026 বিডি লাইভ পোর্টাল | সর্বস্বত্ব সংরক্ষিত।</p>
-    </footer>
 
-    <!-- Video.js Scripts -->
-    <script src="https://vjs.zencdn.net/7.20.3/video.js"></script>
+    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+
     <script>
-        var player = videojs('my-video');
-
-        // Function to change channel/stream dynamically
-        function changeChannel(channelName, streamUrl) {
-            document.getElementById('current-playing').innerText = "এখন দেখছেন: " + channelName;
+        function changeChannel(name, url) {
+            // চ্যানেলের নাম পরিবর্তন
+            document.getElementById('channel-name').innerText = name;
+            
+            // প্লেয়ারে নতুন লিংক লোড করা
+            var player = videojs('my-video');
             player.src({
-                src: streamUrl,
+                src: url,
                 type: 'application/x-mpegURL'
             });
             player.play();
-            // Scroll smoothly to player
+            
+            // ক্লিক করার পর অটোমেটিক স্ক্রিন স্ক্রোল করে প্লেয়ারের কাছে নিয়ে যাবে
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
