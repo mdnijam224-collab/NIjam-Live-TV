@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>লাইভ টিভি ও স্পোর্টস</title>
+    <title>নিলয় লাইভ টিভি</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     
     <style>
         body {
@@ -24,11 +23,12 @@
             box-shadow: 0 12px 30px rgba(0,0,0,0.9);
             margin-bottom: 35px;
         }
-        video {
+        iframe {
             width: 100%;
             aspect-ratio: 16/9;
             border-radius: 8px;
             background-color: #000000;
+            border: none;
         }
         .section-title {
             font-size: 1.25rem;
@@ -39,7 +39,7 @@
             margin-bottom: 20px;
             margin-top: 25px;
         }
-        /* প্রতিটি চ্যানেলের সিরিয়াল কার্ড */
+        /* এক এক করে সিরিয়াল অনুযায়ী সাজানো কার্ড */
         .channel-card {
             background-color: #0c0c0c;
             border: 1px solid #1a1a1a;
@@ -57,13 +57,12 @@
             background-color: #141414;
             border-color: #00f2fe;
         }
-        /* লোগো ইমেজ স্টাইল */
+        /* লোগো ইমেজ সাইজ */
         .channel-logo-img {
             height: 50px;
             max-width: 85%;
             object-fit: contain;
             margin-bottom: 10px;
-            filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.5));
         }
         .live-pulse {
             display: inline-block;
@@ -91,7 +90,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="player-container">
-                    <video id="video-player" controls autoplay playsinline></video>
+                    <iframe id="video-player" src="https://www.youtube.com/embed/live_stream?channel=UCN6sm8iHiPd0cnoUardDAnw&autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     <div class="p-2 mt-2 border-top border-dark">
                         <h5 id="playing-title" class="mb-0 text-warning">● বর্তমানে চলছে: যমুনা টিভি</h5>
                     </div>
@@ -105,7 +104,7 @@
                 <h4 class="section-title">চলতি লাইভ খেলা</h4>
                 <div class="row g-3 mb-4">
                     <div class="col-6 col-sm-4">
-                        <div class="channel-card p-3 text-center" onclick="playM3U8('BD vs AUS Live Match', 'https://bdiptv.stream/tsports/index.m3u8')">
+                        <div class="channel-card p-3 text-center" onclick="changeChannel('BD vs AUS Live Match', 'https://www.youtube.com/embed/live_stream?channel=UC8_zZfD6z7O2I7S0fEAsDVA')">
                             <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/tsports.png" alt="T-Sports" class="channel-logo-img">
                             <h6 class="mb-0 fw-bold" style="font-size: 0.95rem;">BD vs AUS Live</h6>
                             <small class="text-danger fw-bold mt-1"><span class="live-pulse"></span>Live Now</small>
@@ -117,7 +116,7 @@
                 <div class="row g-3">
                     
                     <div class="col-6 col-sm-4">
-                        <div class="channel-card p-3 text-center" onclick="playM3U8('যমুনা টিভি', 'https://live-cdn.chorki.com/live-tv/jamunatv/index.m3u8')">
+                        <div class="channel-card p-3 text-center" onclick="changeChannel('যমুনা টিভি', 'https://www.youtube.com/embed/live_stream?channel=UCN6sm8iHiPd0cnoUardDAnw')">
                             <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/jamunatv.png" alt="Jamuna TV" class="channel-logo-img">
                             <h6 class="mb-0 fw-bold" style="font-size: 0.95rem;">যমুনা টিভি</h6>
                             <small class="text-muted mt-1">খবর</small>
@@ -125,7 +124,7 @@
                     </div>
 
                     <div class="col-6 col-sm-4">
-                        <div class="channel-card p-3 text-center" onclick="playM3U8('সময় টিভি', 'https://live-cdn.chorki.com/live-tv/somoytv/index.m3u8')">
+                        <div class="channel-card p-3 text-center" onclick="changeChannel('সময় টিভি', 'https://www.youtube.com/embed/live_stream?channel=UCxHoBXkY88Tb8z1Ssj6CWsQ')">
                             <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/somoytv.png" alt="Somoy TV" class="channel-logo-img">
                             <h6 class="mb-0 fw-bold" style="font-size: 0.95rem;">সময় টিভি</h6>
                             <small class="text-muted mt-1">খবর</small>
@@ -133,10 +132,10 @@
                     </div>
 
                     <div class="col-6 col-sm-4">
-                        <div class="channel-card p-3 text-center" onclick="playM3U8('জিটিভি (GTV)', 'https://live-cdn.chorki.com/live-tv/gtv/index.m3u8')">
-                            <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/gtv.png" alt="GTV" class="channel-logo-img">
-                            <h6 class="mb-0 fw-bold" style="font-size: 0.95rem;">জিটিভি (GTV)</h6>
-                            <small class="text-muted mt-1">বিনোদন ও খেলা</small>
+                        <div class="channel-card p-3 text-center" onclick="changeChannel('নিউজ ২৪ লাইভ', 'https://www.youtube.com/embed/live_stream?channel=UCG_69mO_b_X0sZ8-w3jIn9g')">
+                            <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/news24.png" alt="News 24" class="channel-logo-img">
+                            <h6 class="mb-0 fw-bold" style="font-size: 0.95rem;">নিউজ ২৪</h6>
+                            <small class="text-muted mt-1">বিনোদন ও খবর</small>
                         </div>
                     </div>
 
@@ -146,33 +145,15 @@
     </div>
 
     <script>
-        var video = document.getElementById('video-player');
-        var hls;
-
-        function playM3U8(name, url) {
-            document.getElementById('playing-title').innerText = "● Actualmente চলছে: " + name;
-
-            if (Hls.isSupported()) {
-                if (hls) {
-                    hls.destroy();
-                }
-                hls = new Hls();
-                hls.loadSource(url);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    video.play().catch(function(e) { console.log("Autoplay blocked"); });
-                });
-            } else if (video.canPlayType('application/x-mpegURL') || video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = url;
-                video.play().catch(function(e) { console.log("Autoplay blocked"); });
-            }
+        function changeChannel(name, embedUrl) {
+            document.getElementById('playing-title').innerText = "● বর্তমানে চলছে: " + name;
+            
+            // প্লেয়ারে নতুন ভিডিও ইম্বেড লিংক লোড করা
+            var player = document.getElementById('video-player');
+            player.src = embedUrl + "&autoplay=1";
+            
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
-
-        // প্রথমবার সাইট ওপেন হলে স্বয়ংক্রিয়ভাবে যমুনা টিভি প্লে হবে
-        window.onload = function() {
-            playM3U8('যমুনা টিভি', 'https://live-cdn.chorki.com/live-tv/jamunatv/index.m3u8');
-        };
     </script>
 </body>
 </html>
