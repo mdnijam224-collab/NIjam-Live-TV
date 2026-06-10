@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toffee Live TV & Sports</title>
+    <title>HASTV - Live TV & Sports</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
@@ -20,28 +20,52 @@
         /* অ্যাপের মতো টপ বার */
         .top-nav {
             background: linear-gradient(180deg, #4a0e4e 0%, #111111 100%);
-            padding: 15px 10px;
+            padding: 15px 15px;
             position: sticky;
             top: 0;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
+        
+        /* সাইটের নাম/লোগো স্টাইল */
+        .site-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #00f2fe;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .nav-tabs-custom {
             display: flex;
             gap: 20px;
             overflow-x: auto;
             white-space: nowrap;
             scrollbar-width: none;
+            flex-grow: 1;
+            justify-content: flex-end;
+        }
+        .nav-tabs-custom::-webkit-scrollbar {
+            display: none;
         }
         .nav-link-custom {
             color: #b3b3b3;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             padding-bottom: 5px;
         }
         .nav-link-custom.active {
             color: #ffffff;
-            border-bottom: 3px solid #ffffff;
+            border-bottom: 3px solid #00f2fe;
         }
 
         /* প্রফেশনাল ভিডিও প্লেয়ার কন্টেইনার */
@@ -83,7 +107,7 @@
             text-decoration: none;
         }
 
-        /* স্ক্রিনশটের মতো গোল লোগো ডিজাইন */
+        /* গোল লোগো ডিজাইন */
         .circle-grid {
             display: flex;
             gap: 15px;
@@ -115,7 +139,7 @@
         }
         .circle-item:hover .circle-logo-wrapper {
             transform: scale(1.05);
-            border-color: #e21b70;
+            border-color: #00f2fe;
         }
         .circle-logo-img {
             width: 100%;
@@ -180,6 +204,9 @@
     </div>
 
     <div class="top-nav">
+        <a href="#" class="site-brand">
+            <i class="fa-solid fa-play-cycle text-info"></i> HASTV
+        </a>
         <div class="nav-tabs-custom">
             <a href="#" class="nav-link-custom active">Live TV</a>
             <a href="#" class="nav-link-custom">Sports</a>
@@ -202,7 +229,7 @@
         </div>
         <div class="circle-grid">
             <div class="circle-item" onclick="switchLive('BAN vs AUS Live', 'UC8_zZfD6z7O2I7S0fEAsDVA')">
-                <div class="circle-logo-wrapper" style="border-color: #e21b70;">
+                <div class="circle-logo-wrapper" style="border-color: #ef4444;">
                     <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/tsports.png" class="circle-logo-img" alt="Sports">
                     <span class="live-tag">LIVE</span>
                 </div>
@@ -210,7 +237,7 @@
             </div>
             <div class="circle-item" onclick="switchLive('Sony Sports 1', 'UC6_Y77FbtA76A96E49E1p6A')">
                 <div class="circle-logo-wrapper">
-                    <img src="https://i.ibb.co/XfXfXfX/sony-sports.png" onerror="this.src='https://placehold.co/100x100/222/fff?text=SONY+1'" class="circle-logo-img" alt="Sony 1">
+                    <img src="https://placehold.co/100x100/222/fff?text=SONY+1" class="circle-logo-img" alt="Sony 1">
                 </div>
                 <div class="channel-name">Sony Sports 1</div>
             </div>
@@ -263,11 +290,8 @@
 
     <script>
         function switchLive(channelName, channelId) {
-            // অ্যাপ প্লেয়ারে সরাসরি ইউটিউব অফিশিয়াল লাইভ স্ট্রিম ফিড চেঞ্জ করার কোড
             var player = document.getElementById('app-player');
             player.src = "https://www.youtube.com/embed/live_stream?channel=" + channelId + "&autoplay=1";
-            
-            // ক্লিক করলে স্ক্রিনটি স্মুথলি প্লেয়ারের ওপরে উঠে যাবে
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
