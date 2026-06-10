@@ -34,7 +34,7 @@
             margin-bottom: 15px;
         }
         
-        /* પ્રીમિયમ નિયોન બ્રાન્ડિંગ */
+        /* প্রিমিয়াম নিয়ন ব্র্যান্ডিং */
         .site-branding-title {
             font-size: 1.8rem;
             font-weight: 900;
@@ -106,7 +106,7 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* মুভি সাব-ক্যাটাগরি ফিল্টার বার (ইংলিশ, হিন্দি) */
+        /* মুভি সাব-ক্যাটাগরি ফিল্টার বার */
         .movie-sub-filters {
             display: none;
             gap: 10px;
@@ -188,7 +188,7 @@
             display: none;
         }
 
-        /* আল্ট্রা ক্লিয়ার রাউন্ডেড চ্যানেল কার্ড */
+        /* রাউন্ডেড চ্যানেল/মুভি কার্ড */
         .channel-circle-card {
             flex: 0 0 auto;
             text-align: center;
@@ -280,7 +280,7 @@
             margin-bottom: 4px;
         }
 
-        /* মোডাল উইন্ডো কাস্টমাইজেশন */
+        /* মোডাল উইন্ডো */
         .modal-content-custom {
             background-color: #26052b;
             color: #fff;
@@ -291,12 +291,6 @@
             background-color: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #fff;
-        }
-        .modal-input-style:focus {
-            background-color: rgba(255, 255, 255, 0.12);
-            color: #fff;
-            border-color: #00f2fe;
-            box-shadow: none;
         }
     </style>
 </head>
@@ -348,7 +342,7 @@
                     <div>
                         <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill">PREMIUM OTT PLATFORM</span>
                         <h4 class="fw-bold text-white mb-2">এনজয় করুন প্রিমিয়াম মুভি ও লাইভ টিভি</h4>
-                        <p class="text-muted small">এখন এক ক্লিকেই উপভোগ করুন হলিউড, বলিউড এবং ঢালিউডের নতুন নতুন পপুলার লাইভ মুভি ও ড্রামা চ্যানেলগুলো সম্পূর্ণ বাফারিং ছাড়াই।</p>
+                        <p class="text-muted small">এখন এক ক্লিকেই উপভোগ করুন হলিউড, বলিউড এবং নতুন সব পপুলার বাংলা মুভি সরাসরি প্লেয়ার স্ক্রিনে সম্পূর্ণ বাফারিং ছাড়াই।</p>
                     </div>
                     <div class="p-3 rounded bg-opacity-10 bg-white border border-secondary small">
                         <i class="fa-solid fa-bolt text-warning me-2"></i> যেকোনো মুভি বা লাইভ চ্যানেলের লাভ আইকনে ক্লিক করে সহজেই বুকমার্ক করে রাখুন।
@@ -368,15 +362,15 @@
                 <div class="section-main-title"><i class="fa-solid fa-radio text-danger"></i> Live News Channels</div>
                 <div class="circle-channels-row">
                     <div class="channel-circle-card" data-name="jamuna tv যমুনা টিভি লাইভ খবর news">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('news1', 'যমুনা টিভি', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/jamunatv.png', 'UCN6sm8iHiPd0cnoUardDAnw')"><i class="fa-solid fa-heart" id="heart-news1"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('যমুনা টিভি লাইভ', 'UCN6sm8iHiPd0cnoUardDAnw')">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('news1', 'যমুনা টিভি', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/jamunatv.png', 'UCN6sm8iHiPd0cnoUardDAnw', true)"><i class="fa-solid fa-heart" id="heart-news1"></i></div>
+                        <div class="logo-circle-frame" onclick="playMedia('যমুনা টিভি লাইভ', 'UCN6sm8iHiPd0cnoUardDAnw', true)">
                             <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/jamunatv.png" alt="Jamuna TV">
                         </div>
                         <div class="channel-label-name">যমুনা টিভি</div>
                     </div>
                     <div class="channel-circle-card" data-name="somoy tv সময় টিভি লাইভ খবর news">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('news2', 'সময় টিভি', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/somoytv.png', 'UCxHoBXkY88Tb8z1Ssj6CWsQ')"><i class="fa-solid fa-heart" id="heart-news2"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('সময় টিভি লাইভ', 'UCxHoBXkY88Tb8z1Ssj6CWsQ')">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('news2', 'সময় টিভি', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/somoytv.png', 'UCxHoBXkY88Tb8z1Ssj6CWsQ', true)"><i class="fa-solid fa-heart" id="heart-news2"></i></div>
+                        <div class="logo-circle-frame" onclick="playMedia('সময় টিভি লাইভ', 'UCxHoBXkY88Tb8z1Ssj6CWsQ', true)">
                             <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/somoytv.png" alt="Somoy TV">
                         </div>
                         <div class="channel-label-name">সময় টিভি</div>
@@ -388,8 +382,8 @@
                 <div class="section-main-title"><i class="fa-solid fa-trophy text-warning"></i> Live Sports Channels</div>
                 <div class="circle-channels-row">
                     <div class="channel-circle-card" data-name="t sports টি স্পোর্টস লাইভ ক্রিকেট খেলা sports live cricket">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('sp1', 'T Sports Live', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/tsports.png', 'UC8_zZfD6z7O2I7S0fEAsDVA')"><i class="fa-solid fa-heart" id="heart-sp1"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('T Sports Live Match', 'UC8_zZfD6z7O2I7S0fEAsDVA')">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('sp1', 'T Sports Live', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/tsports.png', 'UC8_zZfD6z7O2I7S0fEAsDVA', true)"><i class="fa-solid fa-heart" id="heart-sp1"></i></div>
+                        <div class="logo-circle-frame" onclick="playMedia('T Sports Live Match', 'UC8_zZfD6z7O2I7S0fEAsDVA', true)">
                             <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/tsports.png" alt="T Sports">
                         </div>
                         <div class="channel-label-name">T Sports</div>
@@ -401,50 +395,57 @@
                 <div class="section-main-title"><i class="fa-solid fa-film text-info"></i> Movies & Drama Special</div>
                 <div class="circle-channels-row">
                     
+                    <div class="channel-circle-card movie-lang-card bangla-movies" data-name="surongo movie বাংলা মুভি সুড়ঙ্গ আফরান নিশো সিনেমা">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_bng1', 'সুড়ঙ্গ', 'https://placehold.co/100x100/ff0844/fff?text=SURONGO', 'v97gC7X3xSg', false)"><i class="fa-solid fa-heart" id="heart-mv_bng1"></i></div>
+                        <div class="logo-circle-frame" onclick="playMedia('সুড়ঙ্গ (Surongo) - সুপারহিট বাংলা মুভি', 'v97gC7X3xSg', false)">
+                            <img src="https://placehold.co/100x100/ff0844/fff?text=SURONGO" alt="Surongo Movie">
+                        </div>
+                        <div class="channel-label-name">সুড়ঙ্গ</div>
+                    </div>
+
+                    <div class="channel-circle-card movie-lang-card bangla-movies" data-name="poran movie বাংলা মুভি পরাণ শরীফুল রাজ রাজ সিনেমা">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_bng2', 'পরাণ', 'https://placehold.co/100x100/7a0e4e/fff?text=PORAN', '6bZ7S_38Yq0', false)"><i class="fa-solid fa-heart" id="heart-mv_bng2"></i></div>
+                        <div class="logo-circle-frame" onclick="playMedia('পরাণ (Poran) - ব্লকবাস্টার বাংলা মুভি', '6bZ7S_38Yq0', false)">
+                            <img src="https://placehold.co/100x100/7a0e4e/fff?text=PORAN" alt="Poran Movie">
+                        </div>
+                        <div class="channel-label-name">পরাণ</div>
+                    </div>
+
+                    <div class="channel-circle-card movie-lang-card bangla-movies" data-name="priyotoma movie শাকিব খান মুভি প্রিয়তমা সিনেমা">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_bng3', 'প্রিয়তমা', 'https://placehold.co/100x100/00f2fe/000?text=PRIYOTOMA', 'tM3b_5pZ7jA', false)"><i class="fa-solid fa-heart" id="heart-mv_bng3"></i></div>
+                        <div class="logo-circle-frame" onclick="playMedia('প্রিয়তমা (Priyotoma) - শাকিব খান মুভি', 'tM3b_5pZ7jA', false)">
+                            <img src="https://placehold.co/100x100/00f2fe/000?text=PRIYOTOMA" alt="Priyotoma Movie">
+                        </div>
+                        <div class="channel-label-name">প্রিয়তমা</div>
+                    </div>
+
+                    <div class="channel-circle-card movie-lang-card bangla-movies" data-name="hawa movie চঞ্চল চৌধুরী হাওয়া মুভি সিনেমা">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_bng4', 'হাওয়া', 'https://placehold.co/100x100/111/fff?text=HAWA', 'R_w_R59rKko', false)"><i class="fa-solid fa-heart" id="heart-mv_bng4"></i></div>
+                        <div class="logo-circle-frame" onclick="playMedia('হাওয়া (Hawa) - চঞ্চল চৌধুরী ব্লকবাস্টার মুভি', 'R_w_R59rKko', false)">
+                            <img src="https://placehold.co/100x100/111/fff?text=HAWA" alt="Hawa Movie">
+                        </div>
+                        <div class="channel-label-name">হাওয়া</div>
+                    </div>
+
+                    <div class="channel-circle-card movie-lang-card bangla-movies" data-name="bangla movie live ২4 ঘন্টা বাংলা সিনেমা cinema">
+                        <div class="logo-circle-frame" onclick="playMedia('২৪ ঘণ্টা লাইভ বাংলা সিনেমা চ্যানেল', 'UCw9bYg_fK2bshLzdfM7uGvA', true)">
+                            <img src="https://placehold.co/100x100/e67e22/fff?text=LIVE+MV" alt="Bangla Movie Live">
+                        </div>
+                        <div class="channel-label-name">Live Movies</div>
+                    </div>
+
                     <div class="channel-circle-card movie-lang-card english" data-name="english action movies live হলিঊড সিনেমা">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_eng1', 'Hollywood Live', 'https://placehold.co/100x100/111/fff?text=HOLLYWOOD', 'UC_O3vbyS2VIs_96wR6WvG9g')"><i class="fa-solid fa-heart" id="heart-mv_eng1"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('Hollywood Live Action Movies 24/7', 'UC_O3vbyS2VIs_96wR6WvG9g')">
-                            <img src="https://placehold.co/100x100/111/fff?text=HOLLYWOOD" alt="English Movie">
+                        <div class="logo-circle-frame" onclick="playMedia('Hollywood Live Action Movies 24/7', 'UC_O3vbyS2VIs_96wR6WvG9g', true)">
+                            <img src="https://placehold.co/100x100/123/fff?text=HOLLYWOOD" alt="English Movie">
                         </div>
                         <div class="channel-label-name">Hollywood Live</div>
                     </div>
 
-                    <div class="channel-circle-card movie-lang-card english" data-name="popcorn classic english movies live">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_eng2', 'Popcorn Movies', 'https://placehold.co/100x100/123/fff?text=POPCORN', 'UC8V4wz9XbYgL_8-pY71e1pA')"><i class="fa-solid fa-heart" id="heart-mv_eng2"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('Popcorn Classic English Movies Live', 'UC8V4wz9XbYgL_8-pY71e1pA')">
-                            <img src="https://placehold.co/100x100/123/fff?text=POPCORN" alt="Popcorn Movie">
-                        </div>
-                        <div class="channel-label-name">Popcorn Eng</div>
-                    </div>
-
                     <div class="channel-circle-card movie-lang-card hindi" data-name="goldmines hindi movies live বলিউড সিনেমা">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_hin1', 'Goldmines Live', 'https://placehold.co/100x100/f39c12/000?text=GOLDMINES', 'UCnbeUa8Z0gcoN_4He_A_hSg')"><i class="fa-solid fa-heart" id="heart-mv_hin1"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('Goldmines 24/7 Hindi Blockbuster Movies', 'UCnbeUa8Z0gcoN_4He_A_hSg')">
+                        <div class="logo-circle-frame" onclick="playMedia('Goldmines 24/7 Hindi Blockbuster Movies', 'UCnbeUa8Z0gcoN_4He_A_hSg', true)">
                             <img src="https://placehold.co/100x100/f39c12/000?text=GOLDMINES" alt="Hindi Movie">
                         </div>
                         <div class="channel-label-name">Goldmines Hindi</div>
-                    </div>
-
-                    <div class="channel-circle-card movie-lang-card hindi" data-name="shemaroo hindi movies live বলিউড সিনেমা">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_hin2', 'Shemaroo Hindi', 'https://placehold.co/100x100/d35400/fff?text=SHEMAROO', 'UCFFbZ8mFDe8g0Ond5jGis9A')"><i class="fa-solid fa-heart" id="heart-mv_hin2"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('Shemaroo Premium Live Hindi Movies', 'UCFFbZ8mFDe8g0Ond5jGis9A')">
-                            <img src="https://placehold.co/100x100/d35400/fff?text=SHEMAROO" alt="Hindi Movie 2">
-                        </div>
-                        <div class="channel-label-name">Shemaroo Live</div>
-                    </div>
-
-                    <div class="channel-circle-card movie-lang-card bangla-movies" data-name="bangla movie live ২4 ঘন্টা বাংলা সিনেমা cinema">
-                        <div class="logo-circle-frame" onclick="playChannel('২৪ ঘণ্টা লাইভ বাংলা সিনেমা চ্যানেল', 'UCw9bYg_fK2bshLzdfM7uGvA')">
-                            <img src="https://placehold.co/100x100/00f2fe/000?text=BANGLA+MV" alt="Bangla Movie">
-                        </div>
-                        <div class="channel-label-name">Bangla Movies</div>
-                    </div>
-
-                    <div class="channel-circle-card movie-lang-card bangla-movies" data-name="bangla drama live নাটক ২4 ঘন্টা">
-                        <div class="logo-circle-frame" onclick="playChannel('২৪ ঘণ্টা লাইভ বাংলা নাটক প্যানেল', 'UCvC4ToK6X2y7Xm9H5m9eXgQ')">
-                            <img src="https://placehold.co/100x100/4a0e4e/fff?text=BANGLA+DK" alt="Bangla Drama">
-                        </div>
-                        <div class="channel-label-name">Bangla Drama</div>
                     </div>
 
                 </div>
@@ -454,7 +455,7 @@
                 <div class="section-main-title"><i class="fa-solid fa-face-smile text-success"></i> 24/7 Live Cartoon Channels</div>
                 <div class="circle-channels-row">
                     <div class="channel-circle-card" data-name="tom and jerry cartoon live টম এন্ড জেরি কার্টুন">
-                        <div class="logo-circle-frame" onclick="playChannel('Tom and Jerry 24/7 Live Cartoon', 'UCvdfgqFAL6lYgBSp86_K4bA')">
+                        <div class="logo-circle-frame" onclick="playMedia('Tom and Jerry 24/7 Live Cartoon', 'UCvdfgqFAL6lYgBSp86_K4bA', true)">
                             <img src="https://placehold.co/100x100/2ecc71/fff?text=TOM+JERRY" alt="Tom & Jerry">
                         </div>
                         <div class="channel-label-name">Tom & Jerry</div>
@@ -498,18 +499,6 @@
                                 <label class="form-label small text-muted">ইমেইল ঠিকানা</label>
                                 <input type="email" class="form-control modal-input-style" id="regEmail" required placeholder="name@example.com">
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label small text-muted">মোবাইল নাম্বার</label>
-                                <input type="tel" class="form-control modal-input-style" id="regPhone" placeholder="+88017XXXXXXXX">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label small text-muted">জেন্ডার (লিঙ্গ)</label>
-                                <select class="form-select modal-input-style" id="regGender">
-                                    <option value="Male">পুরুষ</option>
-                                    <option value="Female">মহিলা</option>
-                                    <option value="Other">অন্যান্য</option>
-                                </select>
-                            </div>
                             <button type="submit" class="btn btn-info w-100 fw-bold rounded-pill text-dark">সংরক্ষণ ও লগইন করুন</button>
                         </form>
                     </div>
@@ -518,19 +507,7 @@
                         <div class="text-center py-2 mb-3">
                             <i class="fa-solid fa-circle-user text-info" style="font-size: 3.5rem;"></i>
                             <h4 class="fw-bold mt-2 mb-0" id="profViewName">User Name</h4>
-                            <span class="badge bg-info text-dark mt-1 px-3 py-1 rounded-pill small">NEXSTREAM PREMIUM USER</span>
                         </div>
-                        <hr class="border-secondary">
-                        <div class="mb-3">
-                            <strong>ইমেইল:</strong> <span id="profViewEmail" class="text-muted"></span>
-                        </div>
-                        <div class="mb-3">
-                            <strong>ফোন নাম্বার:</strong> <span id="profViewPhone" class="text-muted"></span>
-                        </div>
-                        <div class="mb-3">
-                            <strong>জেন্ডার:</strong> <span id="profViewGender" class="text-muted"></span>
-                        </div>
-                        <button class="btn btn-sm btn-outline-info w-100 mb-2 rounded-pill" onclick="enableProfileEdit()">정보 변경 বা আপডেট করুন</button>
                         <button class="btn btn-sm btn-outline-danger w-100 rounded-pill" onclick="handleLogout()">লগআউট</button>
                     </div>
                 </div>
@@ -548,30 +525,32 @@
             checkUserSession();
         });
 
-        function playChannel(name, channelId) {
+        // ডাইনামিক প্লেয়ার ফাংশন (লাইভ চ্যানেল এবং সিঙ্গেল মুভি দুইটাই হ্যান্ডেল করবে)
+        function playMedia(name, id, isChannel = true) {
             var player = document.getElementById('mainStreamingPlayer');
-            player.src = "https://www.youtube.com/embed/live_stream?channel=" + channelId + "&autoplay=1";
+            if (isChannel) {
+                player.src = "https://www.youtube.com/embed/live_stream?channel=" + id + "&autoplay=1";
+            } else {
+                player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+            }
             document.getElementById('currentPlayingLabel').innerHTML = `<i class="fa-solid fa-circle-play me-1 text-danger"></i> বর্তমানে চলছে: ${name}`;
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
         function goToHome() {
-            playChannel('যমুনা টিভি লাইভ স্ট্রিমিং', 'UCN6sm8iHiPd0cnoUardDAnw');
+            playMedia('যমুনা টিভি লাইভ স্ট্রিমিং', 'UCN6sm8iHiPd0cnoUardDAnw', true);
             document.getElementById('channelSearchInput').value = '';
             filterChannels();
             switchCategory('all', document.querySelector('#categoryTabMenu a'));
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // ওটিটি মেইন ক্যাটাগরি সুইচ ও সাব-ক্যাটাগরি টগল ফাংশন
         function switchCategory(category, element) {
             let tabs = document.querySelectorAll('.tab-item-link');
             tabs.forEach(t => t.classList.remove('active'));
             element.classList.add('active');
 
             let subFilter = document.getElementById('movieSubFilters');
-            
-            // যদি Movies & Drama ক্যাটাগরি সিলেক্ট করা হয়, তবেই সাব-ক্যাপশন বার আসবে
             if(category === 'movies') {
                 subFilter.style.display = 'flex';
                 filterMovieLanguage('all-movies', document.querySelector('#movieSubFilters button'));
@@ -593,7 +572,6 @@
             });
         }
 
-        // মুভি ভাষা অনুযায়ী ইনস্ট্যান্ট সাব-ফিল্টারিং (English, Hindi, Bangla)
         function filterMovieLanguage(lang, element) {
             let subBtns = document.querySelectorAll('.sub-filter-btn');
             subBtns.forEach(btn => btn.classList.remove('active'));
@@ -615,34 +593,26 @@
 
         function toggleSearchBox() {
             var box = document.getElementById('searchBoxContainer');
-            if (box.style.display === 'block') {
-                box.style.display = 'none';
-            } else {
-                box.style.display = 'block';
-                document.getElementById('channelSearchInput').focus();
-            }
+            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+            if(box.style.display === 'block') document.getElementById('channelSearchInput').focus();
         }
 
         function filterChannels() {
             let input = document.getElementById('channelSearchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('channel-circle-card');
-            
             for (let i = 0; i < cards.length; i++) {
                 let name = cards[i].getAttribute('data-name');
-                if (name.includes(input)) {
-                    cards[i].style.display = "block";
-                } else {
-                    cards[i].style.display = "none";
-                }
+                if (name.includes(input)) cards[i].style.display = "block";
+                else cards[i].style.display = "none";
             }
         }
 
-        function toggleBookmark(id, name, logo, channelId) {
+        function toggleBookmark(id, name, logo, mediaId, isChannel) {
             let index = bookmarks.findIndex(b => b.id === id);
             if (index > -1) {
                 bookmarks.splice(index, 1);
             } else {
-                bookmarks.push({id, name, logo, channelId});
+                bookmarks.push({id, name, logo, mediaId, isChannel});
             }
             localStorage.setItem('nexstream_bookmarks', JSON.stringify(bookmarks));
             renderBookmarks();
@@ -651,26 +621,17 @@
         function renderBookmarks() {
             let container = document.getElementById('bookmarkedChannelsContainer');
             let section = document.getElementById('bookmarkSectionWrapper');
-            
-            let allHearts = document.querySelectorAll('.fav-heart-btn i');
-            allHearts.forEach(h => h.style.color = '#fff');
-
             if (bookmarks.length === 0) {
                 section.style.display = 'none';
                 return;
             }
-
             section.style.display = 'block';
             container.innerHTML = '';
-
             bookmarks.forEach(ch => {
-                let mainHeart = document.getElementById('heart-' + ch.id);
-                if(mainHeart) mainHeart.style.color = '#fff';
-
                 container.innerHTML += `
                     <div class="channel-circle-card">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('${ch.id}', '${ch.name}', '${ch.logo}', '${ch.channelId}')"><i class="fa-solid fa-trash-can"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('${ch.name}', '${ch.channelId}')">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('${ch.id}', '${ch.name}', '${ch.logo}', '${ch.mediaId}', ${ch.isChannel})"><i class="fa-solid fa-trash-can"></i></div>
+                        <div class="logo-circle-frame" onclick="playMedia('${ch.name}', '${ch.mediaId}', ${ch.isChannel})">
                             <img src="${ch.logo}" alt="${ch.name}">
                         </div>
                         <div class="channel-label-name">${ch.name}</div>
@@ -681,27 +642,17 @@
 
         function scrollToBookmarks() {
             var section = document.getElementById('bookmarkSectionWrapper');
-            if(section.style.display === 'block') {
-                section.scrollIntoView({behavior: 'smooth'});
-            } else {
-                alert('আপনার লিস্টে কোনো ফেভারিট চ্যানেল যোগ করা নেই!');
-            }
+            if(section.style.display === 'block') section.scrollIntoView({behavior: 'smooth'});
+            else alert('আপনার লিস্টে কোনো ফেভারিট কন্টেন্ট যোগ করা নেই!');
         }
 
         function handleAuthSubmit(e) {
             e.preventDefault();
             let name = document.getElementById('regName').value;
             let email = document.getElementById('regEmail').value;
-            let phone = document.getElementById('regPhone').value || 'দেওয়া হয়নি';
-            let gender = document.getElementById('regGender').value;
-
-            let user = { name, email, phone, gender };
-            localStorage.setItem('nexstream_user', JSON.stringify(user));
+            localStorage.setItem('nexstream_user', JSON.stringify({name, email}));
             checkUserSession();
-            
-            let authModalEl = document.getElementById('authModal');
-            let modal = bootstrap.Modal.getInstance(authModalEl);
-            modal.hide();
+            bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
         }
 
         function checkUserSession() {
@@ -710,34 +661,12 @@
                 let user = JSON.parse(session);
                 document.getElementById('authFormWrapper').style.display = 'none';
                 document.getElementById('userProfileWrapper').style.display = 'block';
-                document.getElementById('authModalTitle').innerText = "আপনার প্রোফাইল প্যানেল";
-                
                 document.getElementById('profViewName').innerText = user.name;
-                document.getElementById('profViewEmail').innerText = user.email;
-                document.getElementById('profViewPhone').innerText = user.phone;
-                document.getElementById('profViewGender').innerText = user.gender === 'Male' ? 'পুরুষ' : (user.gender === 'Female' ? 'মহিলা' : 'অন্যান্য');
-                
                 document.getElementById('userAccountBtn').className = "fa-solid fa-user-check text-success";
             } else {
                 document.getElementById('authFormWrapper').style.display = 'block';
                 document.getElementById('userProfileWrapper').style.display = 'none';
-                document.getElementById('authModalTitle').innerText = "অ্যাকাউন্ট তৈরি করুন";
                 document.getElementById('userAccountBtn').className = "fa-solid fa-circle-user";
-            }
-        }
-
-        function enableProfileEdit() {
-            let session = localStorage.getItem('nexstream_user');
-            if (session) {
-                let user = JSON.parse(session);
-                document.getElementById('regName').value = user.name;
-                document.getElementById('regEmail').value = user.email;
-                document.getElementById('regPhone').value = user.phone === 'দেওয়া হয়নি' ? '' : user.phone;
-                document.getElementById('regGender').value = user.gender;
-                
-                document.getElementById('authFormWrapper').style.display = 'block';
-                document.getElementById('userProfileWrapper').style.display = 'none';
-                document.getElementById('authModalTitle').innerText = "প্রোফাইল তথ্য আপডেট করুন";
             }
         }
 
