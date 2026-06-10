@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Hind Siliguri', sans-serif;
-            background: linear-gradient(135deg, #1f0322 0%, #0d0110 100%); /* আল্ট্রা প্রিমিয়াম ডার্ক ম্যাজেন্টা গ্লো */
+            background: linear-gradient(135deg, #1f0322 0%, #0d0110 100%);
             color: #ffffff;
             padding-bottom: 90px;
             min-height: 100vh;
@@ -34,7 +34,7 @@
             margin-bottom: 15px;
         }
         
-        /* প্রিমিয়াম নিয়েন ব্র্যান্ডিং টেক্সট */
+        /* પ્રીમિયમ નિયોન બ્રાન્ડિંગ */
         .site-branding-title {
             font-size: 1.8rem;
             font-weight: 900;
@@ -82,10 +82,11 @@
         /* ওটিটি ডাইনামিক ক্যাটাগরি মেনু বার */
         .nav-tabs-scroll {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             overflow-x: auto;
             white-space: nowrap;
             scrollbar-width: none;
+            padding-bottom: 5px;
         }
         .nav-tabs-scroll::-webkit-scrollbar {
             display: none;
@@ -95,7 +96,7 @@
             text-decoration: none;
             font-size: 1.05rem;
             font-weight: 600;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             transition: all 0.2s;
             cursor: pointer;
@@ -103,7 +104,31 @@
         .tab-item-link.active, .tab-item-link:hover {
             color: #ffffff;
             background: rgba(255, 255, 255, 0.1);
-            border-bottom: none;
+        }
+
+        /* মুভি সাব-ক্যাটাগরি ফিল্টার বার (ইংলিশ, হিন্দি) */
+        .movie-sub-filters {
+            display: none;
+            gap: 10px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .sub-filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #c99ecf;
+            padding: 4px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .sub-filter-btn.active, .sub-filter-btn:hover {
+            background: #00f2fe;
+            color: #000;
+            border-color: #00f2fe;
         }
 
         /* প্লেয়ার লেআউট সেকশন */
@@ -288,7 +313,7 @@
         </div>
 
         <div class="search-box-container" id="searchBoxContainer">
-            <input type="text" class="form-control search-input" id="channelSearchInput" placeholder="চ্যানেল বা ভিডিওর নাম লিখুন..." onkeyup="filterChannels()">
+            <input type="text" class="form-control search-input" id="channelSearchInput" placeholder="চ্যানেল বা মুভির নাম লিখুন..." onkeyup="filterChannels()">
         </div>
 
         <div class="nav-tabs-scroll" id="categoryTabMenu">
@@ -297,6 +322,13 @@
             <a href="javascript:void(0)" class="tab-item-link" onclick="switchCategory('sports', this)">Sports</a>
             <a href="javascript:void(0)" class="tab-item-link" onclick="switchCategory('movies', this)">Movies & Drama</a>
             <a href="javascript:void(0)" class="tab-item-link" onclick="switchCategory('cartoons', this)">Cartoons</a>
+        </div>
+
+        <div class="movie-sub-filters" id="movieSubFilters">
+            <button class="sub-filter-btn active" onclick="filterMovieLanguage('all-movies', this)">All Language</button>
+            <button class="sub-filter-btn" onclick="filterMovieLanguage('english', this)">English Movies</button>
+            <button class="sub-filter-btn" onclick="filterMovieLanguage('hindi', this)">Hindi Movies</button>
+            <button class="sub-filter-btn" onclick="filterMovieLanguage('bangla-movies', this)">Bangla Content</button>
         </div>
     </div>
 
@@ -315,11 +347,11 @@
                 <div class="side-info-card d-flex flex-column justify-content-between">
                     <div>
                         <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill">PREMIUM OTT PLATFORM</span>
-                        <h4 class="fw-bold text-white mb-2">এনজয় করুন প্রিমিয়াম স্ট্রিমিং</h4>
-                        <p class="text-muted small">কোনো বাফারিং ছাড়াই এক ক্লিকে উপভোগ করুন সব ২৪ ঘণ্টা সচল লাইভ নিউজ, স্পোর্টস এবং কার্টুন চ্যানেলসমূহ।</p>
+                        <h4 class="fw-bold text-white mb-2">এনজয় করুন প্রিমিয়াম মুভি ও লাইভ টিভি</h4>
+                        <p class="text-muted small">এখন এক ক্লিকেই উপভোগ করুন হলিউড, বলিউড এবং ঢালিউডের নতুন নতুন পপুলার লাইভ মুভি ও ড্রামা চ্যানেলগুলো সম্পূর্ণ বাফারিং ছাড়াই।</p>
                     </div>
                     <div class="p-3 rounded bg-opacity-10 bg-white border border-secondary small">
-                        <i class="fa-solid fa-heart text-danger me-2"></i> যেকোনো চ্যানেলের লাভ আইকনে ক্লিক করে সহজেই নিজের ফেভারিট লিস্ট তৈরি করুন।
+                        <i class="fa-solid fa-bolt text-warning me-2"></i> যেকোনো মুভি বা লাইভ চ্যানেলের লাভ আইকনে ক্লিক করে সহজেই বুকমার্ক করে রাখুন।
                     </div>
                 </div>
             </div>
@@ -349,20 +381,6 @@
                         </div>
                         <div class="channel-label-name">সময় টিভি</div>
                     </div>
-                    <div class="channel-circle-card" data-name="news 24 নিউজ ২৪ লাইভ খবর">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('news3', 'News 24', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/news24.png', 'UCG_69mO_b_X0sZ8-w3jIn9g')"><i class="fa-solid fa-heart" id="heart-news3"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('নিউজ ২৪ লাইভ', 'UCG_69mO_b_X0sZ8-w3jIn9g')">
-                            <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/news24.png" alt="News 24">
-                        </div>
-                        <div class="channel-label-name">News 24</div>
-                    </div>
-                    <div class="channel-circle-card" data-name="dbc news ডিবিসি নিউজ লাইভ খবর">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('news4', 'DBC News', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/dbcnews.png', 'UCdf9XvVf0v0KzSpZnyv9u3A')"><i class="fa-solid fa-heart" id="heart-news4"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('ডিবিসি নিউজ লাইভ', 'UCdf9XvVf0v0KzSpZnyv9u3A')">
-                            <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/dbcnews.png" alt="DBC News">
-                        </div>
-                        <div class="channel-label-name">DBC News</div>
-                    </div>
                 </div>
             </div>
 
@@ -376,31 +394,59 @@
                         </div>
                         <div class="channel-label-name">T Sports</div>
                     </div>
-                    <div class="channel-circle-card" data-name="sony sports 1 live hd">
-                        <div class="fav-heart-btn" onclick="toggleBookmark('sp2', 'Sony Sports 1', 'https://placehold.co/100x100/310d36/fff?text=SONY+1', 'UC6_Y77FbtA76A96E49E1p6A')"><i class="fa-solid fa-heart" id="heart-sp2"></i></div>
-                        <div class="logo-circle-frame" onclick="playChannel('Sony Sports 1 HD', 'UC6_Y77FbtA76A96E49E1p6A')">
-                            <img src="https://placehold.co/100x100/310d36/fff?text=SONY+1" alt="Sony Sports 1">
-                        </div>
-                        <div class="channel-label-name">Sony Sports 1</div>
-                    </div>
                 </div>
             </div>
 
             <div class="category-section" id="sec-movies">
                 <div class="section-main-title"><i class="fa-solid fa-film text-info"></i> Movies & Drama Special</div>
                 <div class="circle-channels-row">
-                    <div class="channel-circle-card" data-name="bangla movie live ২4 ঘন্টা বাংলা সিনেমা cinema">
+                    
+                    <div class="channel-circle-card movie-lang-card english" data-name="english action movies live হলিঊড সিনেমা">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_eng1', 'Hollywood Live', 'https://placehold.co/100x100/111/fff?text=HOLLYWOOD', 'UC_O3vbyS2VIs_96wR6WvG9g')"><i class="fa-solid fa-heart" id="heart-mv_eng1"></i></div>
+                        <div class="logo-circle-frame" onclick="playChannel('Hollywood Live Action Movies 24/7', 'UC_O3vbyS2VIs_96wR6WvG9g')">
+                            <img src="https://placehold.co/100x100/111/fff?text=HOLLYWOOD" alt="English Movie">
+                        </div>
+                        <div class="channel-label-name">Hollywood Live</div>
+                    </div>
+
+                    <div class="channel-circle-card movie-lang-card english" data-name="popcorn classic english movies live">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_eng2', 'Popcorn Movies', 'https://placehold.co/100x100/123/fff?text=POPCORN', 'UC8V4wz9XbYgL_8-pY71e1pA')"><i class="fa-solid fa-heart" id="heart-mv_eng2"></i></div>
+                        <div class="logo-circle-frame" onclick="playChannel('Popcorn Classic English Movies Live', 'UC8V4wz9XbYgL_8-pY71e1pA')">
+                            <img src="https://placehold.co/100x100/123/fff?text=POPCORN" alt="Popcorn Movie">
+                        </div>
+                        <div class="channel-label-name">Popcorn Eng</div>
+                    </div>
+
+                    <div class="channel-circle-card movie-lang-card hindi" data-name="goldmines hindi movies live বলিউড সিনেমা">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_hin1', 'Goldmines Live', 'https://placehold.co/100x100/f39c12/000?text=GOLDMINES', 'UCnbeUa8Z0gcoN_4He_A_hSg')"><i class="fa-solid fa-heart" id="heart-mv_hin1"></i></div>
+                        <div class="logo-circle-frame" onclick="playChannel('Goldmines 24/7 Hindi Blockbuster Movies', 'UCnbeUa8Z0gcoN_4He_A_hSg')">
+                            <img src="https://placehold.co/100x100/f39c12/000?text=GOLDMINES" alt="Hindi Movie">
+                        </div>
+                        <div class="channel-label-name">Goldmines Hindi</div>
+                    </div>
+
+                    <div class="channel-circle-card movie-lang-card hindi" data-name="shemaroo hindi movies live বলিউড সিনেমা">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('mv_hin2', 'Shemaroo Hindi', 'https://placehold.co/100x100/d35400/fff?text=SHEMAROO', 'UCFFbZ8mFDe8g0Ond5jGis9A')"><i class="fa-solid fa-heart" id="heart-mv_hin2"></i></div>
+                        <div class="logo-circle-frame" onclick="playChannel('Shemaroo Premium Live Hindi Movies', 'UCFFbZ8mFDe8g0Ond5jGis9A')">
+                            <img src="https://placehold.co/100x100/d35400/fff?text=SHEMAROO" alt="Hindi Movie 2">
+                        </div>
+                        <div class="channel-label-name">Shemaroo Live</div>
+                    </div>
+
+                    <div class="channel-circle-card movie-lang-card bangla-movies" data-name="bangla movie live ২4 ঘন্টা বাংলা সিনেমা cinema">
                         <div class="logo-circle-frame" onclick="playChannel('২৪ ঘণ্টা লাইভ বাংলা সিনেমা চ্যানেল', 'UCw9bYg_fK2bshLzdfM7uGvA')">
-                            <img src="https://placehold.co/100x100/00f2fe/000?text=MOVIES" alt="Movie Live">
+                            <img src="https://placehold.co/100x100/00f2fe/000?text=BANGLA+MV" alt="Bangla Movie">
                         </div>
-                        <div class="channel-label-name">Live Movies</div>
+                        <div class="channel-label-name">Bangla Movies</div>
                     </div>
-                    <div class="channel-circle-card" data-name="bangla drama live নাটক ২4 ঘন্টা">
+
+                    <div class="channel-circle-card movie-lang-card bangla-movies" data-name="bangla drama live নাটক ২4 ঘন্টা">
                         <div class="logo-circle-frame" onclick="playChannel('২৪ ঘণ্টা লাইভ বাংলা নাটক প্যানেল', 'UCvC4ToK6X2y7Xm9H5m9eXgQ')">
-                            <img src="https://placehold.co/100x100/4a0e4e/fff?text=NATOK" alt="Drama Live">
+                            <img src="https://placehold.co/100x100/4a0e4e/fff?text=BANGLA+DK" alt="Bangla Drama">
                         </div>
-                        <div class="channel-label-name">Live Drama</div>
+                        <div class="channel-label-name">Bangla Drama</div>
                     </div>
+
                 </div>
             </div>
 
@@ -412,18 +458,6 @@
                             <img src="https://placehold.co/100x100/2ecc71/fff?text=TOM+JERRY" alt="Tom & Jerry">
                         </div>
                         <div class="channel-label-name">Tom & Jerry</div>
-                    </div>
-                    <div class="channel-circle-card" data-name="doraemon cartoon live ডোরেমন কার্টুন">
-                        <div class="logo-circle-frame" onclick="playChannel('Doraemon 24/7 Live Cartoon', 'UCRG-m_A7kZ6b6v_S460wI8A')">
-                            <img src="https://placehold.co/100x100/3498db/fff?text=DORAEMON" alt="Doraemon">
-                        </div>
-                        <div class="channel-label-name">Doraemon</div>
-                    </div>
-                    <div class="channel-circle-card" data-name="motu patlu cartoon live মোটু পাতলু কার্টুন">
-                        <div class="logo-circle-frame" onclick="playChannel('Motu Patlu Live Streaming', 'UCp0m6fFp_wsh9M7Y-a8eY9A')">
-                            <img src="https://placehold.co/100x100/e67e22/fff?text=MOTU+PATLU" alt="Motu Patlu">
-                        </div>
-                        <div class="channel-label-name">Motu Patlu</div>
                     </div>
                 </div>
             </div>
@@ -496,7 +530,7 @@
                         <div class="mb-3">
                             <strong>জেন্ডার:</strong> <span id="profViewGender" class="text-muted"></span>
                         </div>
-                        <button class="btn btn-sm btn-outline-info w-100 mb-2 rounded-pill" onclick="enableProfileEdit()">তথ্য পরিবর্তন বা আপডেট করুন</button>
+                        <button class="btn btn-sm btn-outline-info w-100 mb-2 rounded-pill" onclick="enableProfileEdit()">정보 변경 বা আপডেট করুন</button>
                         <button class="btn btn-sm btn-outline-danger w-100 rounded-pill" onclick="handleLogout()">লগআউট</button>
                     </div>
                 </div>
@@ -514,7 +548,6 @@
             checkUserSession();
         });
 
-        // চ্যানেল স্ট্রিমিং ফাংশন
         function playChannel(name, channelId) {
             var player = document.getElementById('mainStreamingPlayer');
             player.src = "https://www.youtube.com/embed/live_stream?channel=" + channelId + "&autoplay=1";
@@ -522,7 +555,6 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // হোম ও রিসেট বাটন
         function goToHome() {
             playChannel('যমুনা টিভি লাইভ স্ট্রিমিং', 'UCN6sm8iHiPd0cnoUardDAnw');
             document.getElementById('channelSearchInput').value = '';
@@ -531,11 +563,21 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // ওটিটি ডাইনামিক ক্যাটাগরি সুইচিং ফিল্টার
+        // ওটিটি মেইন ক্যাটাগরি সুইচ ও সাব-ক্যাটাগরি টগল ফাংশন
         function switchCategory(category, element) {
             let tabs = document.querySelectorAll('.tab-item-link');
             tabs.forEach(t => t.classList.remove('active'));
             element.classList.add('active');
+
+            let subFilter = document.getElementById('movieSubFilters');
+            
+            // যদি Movies & Drama ক্যাটাগরি সিলেক্ট করা হয়, তবেই সাব-ক্যাপশন বার আসবে
+            if(category === 'movies') {
+                subFilter.style.display = 'flex';
+                filterMovieLanguage('all-movies', document.querySelector('#movieSubFilters button'));
+            } else {
+                subFilter.style.display = 'none';
+            }
 
             let sections = document.querySelectorAll('.category-section');
             sections.forEach(sec => {
@@ -551,7 +593,26 @@
             });
         }
 
-        // সার্চ বক্স টগল
+        // মুভি ভাষা অনুযায়ী ইনস্ট্যান্ট সাব-ফিল্টারিং (English, Hindi, Bangla)
+        function filterMovieLanguage(lang, element) {
+            let subBtns = document.querySelectorAll('.sub-filter-btn');
+            subBtns.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            let movieCards = document.querySelectorAll('.movie-lang-card');
+            movieCards.forEach(card => {
+                if (lang === 'all-movies') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.classList.contains(lang)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
         function toggleSearchBox() {
             var box = document.getElementById('searchBoxContainer');
             if (box.style.display === 'block') {
@@ -562,7 +623,6 @@
             }
         }
 
-        // লাইভ চ্যানেল ইনস্ট্যান্ট ফিল্টারিং সার্চ
         function filterChannels() {
             let input = document.getElementById('channelSearchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('channel-circle-card');
@@ -577,7 +637,6 @@
             }
         }
 
-        // লাভ / বুকমার্ক সিস্টেম
         function toggleBookmark(id, name, logo, channelId) {
             let index = bookmarks.findIndex(b => b.id === id);
             if (index > -1) {
@@ -629,7 +688,6 @@
             }
         }
 
-        // প্রোফাইল সেশন ও অ্যাকাউন্ট ডাটা প্রসেসিং
         function handleAuthSubmit(e) {
             e.preventDefault();
             let name = document.getElementById('regName').value;
