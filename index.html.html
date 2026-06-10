@@ -17,57 +17,6 @@
             user-select: none;
         }
         
-        /* অ্যাপের মতো টপ বার */
-        .top-nav {
-            background: linear-gradient(180deg, #4a0e4e 0%, #111111 100%);
-            padding: 15px 15px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        
-        /* সাইটের নাম/লোগো স্টাইল */
-        .site-brand {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #00f2fe;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .nav-tabs-custom {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            white-space: nowrap;
-            scrollbar-width: none;
-            flex-grow: 1;
-            justify-content: flex-end;
-        }
-        .nav-tabs-custom::-webkit-scrollbar {
-            display: none;
-        }
-        .nav-link-custom {
-            color: #b3b3b3;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            padding-bottom: 5px;
-        }
-        .nav-link-custom.active {
-            color: #ffffff;
-            border-bottom: 3px solid #00f2fe;
-        }
-
         /* প্রফেশনাল ভিডিও প্লেয়ার কন্টেইনার */
         .player-wrapper {
             background-color: #000000;
@@ -77,6 +26,74 @@
             width: 100%;
             aspect-ratio: 16/9;
             border: none;
+        }
+
+        /* ওটিটি অ্যাপের মতো মেইন টপ বার */
+        .header-main {
+            background: linear-gradient(180deg, #4a0e4e 0%, #111111 100%);
+            padding: 15px 15px 5px 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .site-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #00f2fe;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
+            text-decoration: none;
+        }
+        .header-icons {
+            display: flex;
+            gap: 18px;
+            font-size: 1.2rem;
+            color: #b3b3b3;
+        }
+        .header-icons i:hover {
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        /* ক্যাটাগরি মেনু বার */
+        .nav-tabs-custom {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+            padding-bottom: 5px;
+        }
+        .nav-tabs-custom::-webkit-scrollbar {
+            display: none;
+        }
+        .nav-link-custom {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding-bottom: 6px;
+            position: relative;
+        }
+        .nav-link-custom.active {
+            color: #ffffff;
+        }
+        .nav-link-custom.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #00f2fe;
+            border-radius: 2px;
         }
 
         /* ওটিটি ব্যানার পোস্টার */
@@ -203,10 +220,14 @@
         <iframe id="app-player" src="https://www.youtube.com/embed/live_stream?channel=UCN6sm8iHiPd0cnoUardDAnw&autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
-    <div class="top-nav">
-        <a href="#" class="site-brand">
-            <i class="fa-solid fa-play-cycle text-info"></i> HASTV
-        </a>
+    <div class="header-main">
+        <div class="brand-container">
+            <a href="#" class="site-title">HASTV</a>
+            <div class="header-icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-bell"></i>
+            </div>
+        </div>
         <div class="nav-tabs-custom">
             <a href="#" class="nav-link-custom active">Live TV</a>
             <a href="#" class="nav-link-custom">Sports</a>
