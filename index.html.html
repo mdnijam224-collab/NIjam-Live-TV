@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HASTV - Premium OTT & Live Streaming</title>
+    <title>NIJAM BD LIVE TV - Premium OTT Streaming</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
@@ -11,19 +11,21 @@
     <style>
         body {
             font-family: 'Hind Siliguri', sans-serif;
-            background-color: #0b0b0b;
+            background: linear-gradient(135deg, #2c0b30 0%, #17051c 100%); /* আপনার পছন্দের প্রিমিয়াম হালকা বেগুনি থিম */
             color: #ffffff;
             padding-bottom: 90px;
+            min-height: 100vh;
         }
 
-        /* প্রফেশনাল এবং উজ্জ্বল টপ হেডার */
+        /* প্রফেশনাল টপ হেডার */
         .main-header {
-            background: linear-gradient(180deg, #3a0640 0%, #0b0b0b 100%);
+            background: rgba(74, 14, 78, 0.9);
+            backdrop-filter: blur(10px);
             padding: 15px;
             position: sticky;
             top: 0;
             z-index: 1050;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         .header-top-row {
             display: flex;
@@ -31,18 +33,15 @@
             align-items: center;
             margin-bottom: 15px;
         }
-        /* টপে বড় করে সাইটের নাম */
+        /* সাইটের নতুন নাম */
         .site-branding-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: #00f2fe;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
             text-decoration: none;
-        }
-        .site-branding-title:hover {
-            color: #ffffff;
         }
         .header-action-icons {
             display: flex;
@@ -50,7 +49,7 @@
             font-size: 1.3rem;
         }
         .header-action-icons i {
-            color: #b3b3b3;
+            color: #e0b3e3;
             cursor: pointer;
             transition: color 0.2s;
         }
@@ -58,20 +57,20 @@
             color: #00f2fe;
         }
 
-        /* সার্চ বার স্টাইল */
+        /* সার্চ বার */
         .search-box-container {
             display: none;
             margin-bottom: 12px;
         }
         .search-input {
-            background-color: #161616;
-            border: 1px solid #333;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
             border-radius: 20px;
             padding: 8px 20px;
         }
         .search-input:focus {
-            background-color: #222;
+            background-color: rgba(255, 255, 255, 0.2);
             border-color: #00f2fe;
             color: #fff;
             box-shadow: none;
@@ -89,29 +88,28 @@
             display: none;
         }
         .tab-item-link {
-            color: #b3b3b3;
+            color: #d2a6d6;
             text-decoration: none;
             font-size: 1.1rem;
             font-weight: 600;
             padding-bottom: 5px;
+            cursor: pointer;
         }
         .tab-item-link.active {
             color: #ffffff;
             border-bottom: 3px solid #00f2fe;
         }
 
-        /* স্ট্যান্ডার্ড ছোট সাইজের রেসপন্সিভ প্লেয়ার কন্টেইনার */
-        .video-section-container {
-            max-width: 800px;
-            margin: 15px auto;
-            padding: 0 10px;
+        /* ভিডিও প্লেয়ার লেআউট - বাম পাশে প্লেয়ার ও ডান পাশে কন্টেন্ট */
+        .main-layout-container {
+            margin-top: 20px;
         }
         .player-frame-wrapper {
             background-color: #000;
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #222;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         iframe {
             width: 100%;
@@ -119,28 +117,37 @@
             border: none;
         }
         .current-play-bar {
-            background-color: #121212;
-            padding: 10px 15px;
-            font-size: 0.95rem;
+            background-color: rgba(74, 14, 78, 0.5);
+            padding: 12px 15px;
+            font-size: 1rem;
             color: #ffc107;
             font-weight: 600;
-            border-top: 1px solid #222;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* সাইড ব্যানার কন্টেইনার */
+        .side-info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            height: 100%;
         }
 
         /* চ্যানেল রো এবং সেকশন শিরোনাম */
         .section-main-title {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin: 25px 0 15px 0;
+            margin: 30px 0 15px 0;
             color: #ffffff;
             border-left: 4px solid #00f2fe;
             padding-left: 10px;
         }
         .circle-channels-row {
             display: flex;
-            gap: 18px;
+            gap: 20px;
             overflow-x: auto;
-            padding: 10px 0;
+            padding: 10px 5px;
             scrollbar-width: none;
         }
         .circle-channels-row::-webkit-scrollbar {
@@ -151,15 +158,15 @@
         .channel-circle-card {
             flex: 0 0 auto;
             text-align: center;
-            width: 90px;
+            width: 95px;
             position: relative;
         }
         .logo-circle-frame {
-            width: 80px;
-            height: 80px;
-            background-color: #161616;
+            width: 85px;
+            height: 85px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            border: 2px solid #333;
+            border: 2px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -169,8 +176,9 @@
             cursor: pointer;
         }
         .channel-circle-card:hover .logo-circle-frame {
-            transform: scale(1.05);
+            transform: scale(1.08);
             border-color: #00f2fe;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
         }
         .logo-circle-frame img {
             width: 100%;
@@ -178,31 +186,31 @@
             object-fit: cover;
         }
         .channel-label-name {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             margin-top: 8px;
-            color: #cfcfcf;
+            color: #f1e5f2;
             font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        /* বুকমার্ক / ফেভারিট লাভ বাটন স্টাইল */
+        /* বুকমার্ক লাভ বাটন */
         .fav-heart-btn {
             position: absolute;
             top: -2px;
-            right: 2px;
-            background-color: rgba(0, 0, 0, 0.7);
+            right: 5px;
+            background-color: rgba(74, 14, 78, 0.9);
             border-radius: 50%;
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #ff4757;
             cursor: pointer;
-            border: 1px solid #333;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             z-index: 10;
         }
 
@@ -212,8 +220,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: #121212;
-            border-top: 1px solid #222;
+            background-color: #230726;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-around;
             padding: 12px 0;
@@ -221,15 +229,15 @@
         }
         .bottom-nav-btn {
             text-align: center;
-            color: #8e8e93;
+            color: #d2a6d6;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             cursor: pointer;
             background: none;
             border: none;
         }
         .bottom-nav-btn.active, .bottom-nav-btn:hover {
-            color: #ffffff;
+            color: #00f2fe;
         }
         .bottom-nav-btn i {
             font-size: 1.3rem;
@@ -237,20 +245,20 @@
             margin-bottom: 4px;
         }
 
-        /* সাইন ইন মোডাল কাস্টমাইজেশন */
+        /* কাস্টম মোডাল থিম */
         .modal-content-custom {
-            background-color: #161616;
+            background-color: #310d36;
             color: #fff;
-            border: 1px solid #333;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
         }
         .modal-input-style {
-            background-color: #222;
-            border: 1px solid #444;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #fff;
         }
         .modal-input-style:focus {
-            background-color: #262626;
+            background-color: rgba(255, 255, 255, 0.15);
             color: #fff;
             border-color: #00f2fe;
             box-shadow: none;
@@ -261,97 +269,127 @@
 
     <div class="main-header">
         <div class="header-top-row">
-            <a href="javascript:void(0)" onclick="goToHome()" class="site-title site-branding-title">HASTV</a>
+            <a href="javascript:void(0)" onclick="goToHome()" class="site-branding-title">NIJAM BD LIVE TV</a>
             
             <div class="header-action-icons">
-                <i class="fa-solid fa-magnifying-glass" onclick="toggleSearchBox()" title="সার্চ করুন"></i>
-                <i class="fa-solid fa-circle-user" data-bs-toggle="modal" data-bs-target="#authModal" id="userAccountBtn" title="সাইন-ইন"></i>
+                <i class="fa-solid fa-magnifying-glass" onclick="toggleSearchBox()" title="সার্চ"></i>
+                <i class="fa-solid fa-circle-user" data-bs-toggle="modal" data-bs-target="#authModal" id="userAccountBtn" title="প্রোফাইল"></i>
             </div>
         </div>
 
         <div class="search-box-container" id="searchBoxContainer">
-            <input type="text" class="form-control search-input" id="channelSearchInput" placeholder="চ্যানেলের নাম লিখে খুঁজুন..." onkeyup="filterChannels()">
+            <input type="text" class="form-control search-input" id="channelSearchInput" placeholder="চ্যানেল বা ভিডিওর নাম লিখুন..." onkeyup="filterChannels()">
         </div>
 
-        <div class="nav-tabs-scroll">
-            <a href="javascript:void(0)" class="tab-item-link active" onclick="goToHome()">Live TV</a>
-            <a href="javascript:void(0)" class="tab-item-link">Sports</a>
-            <a href="javascript:void(0)" class="tab-item-link">Drama</a>
-            <a href="javascript:void(0)" class="tab-item-link">Movies</a>
+        <div class="nav-tabs-scroll" id="categoryTabMenu">
+            <a href="javascript:void(0)" class="tab-item-link active" onclick="switchCategory('all', this)">Live TV</a>
+            <a href="javascript:void(0)" class="tab-item-link" onclick="switchCategory('sports', this)">Sports</a>
+            <a href="javascript:void(0)" class="tab-item-link" onclick="switchCategory('drama', this)">Drama</a>
+            <a href="javascript:void(0)" class="tab-item-link" onclick="switchCategory('movies', this)">Movies</a>
         </div>
     </div>
 
-    <div class="video-section-container">
-        <div class="player-frame-wrapper">
-            <iframe id="mainStreamingPlayer" src="https://www.youtube.com/embed/live_stream?channel=UC8_zZfD6z7O2I7S0fEAsDVA&autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <div class="current-play-bar" id="currentPlayingLabel">
-                <i class="fa-solid fa-circle-play me-1"></i> বর্তমানে চলছে: BD vs AUS Live Match
+    <div class="container-fluid main-layout-container px-3">
+        <div class="row g-3">
+            <div class="col-lg-8 col-12">
+                <div class="player-frame-wrapper">
+                    <iframe id="mainStreamingPlayer" src="https://www.youtube.com/embed/live_stream?channel=UC8_zZfD6z7O2I7S0fEAsDVA&autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="current-play-bar" id="currentPlayingLabel">
+                        <i class="fa-solid fa-circle-play me-1 text-warning"></i> বর্তমানে চলছে: BAN vs AUS Live
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-12 d-none d-lg-block">
+                <div class="side-info-card d-flex flex-column justify-content-between">
+                    <div>
+                        <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill">PREMIUM PLATFORM</span>
+                        <h4 class="fw-bold text-white mb-3">আনলিমিটেড বিনোদন ও লাইভ স্পোর্টস</h4>
+                        <p class="text-muted small">আপনার প্রিয় সব বাংলাদেশি চ্যানেল এবং লাইভ খেলাধুলা এখন এক জায়গায় সম্পূর্ণ হাই ডেফিনিশনে উপভোগ করুন যেকোনো সময়।</p>
+                    </div>
+                    <div class="p-3 rounded bg-opacity-10 bg-white border border-secondary">
+                        <i class="fa-solid fa-bolt text-warning me-2"></i> বাফারিং মুক্ত স্ট্রিমিং অভিজ্ঞতা পেতে আপনার প্রোফাইলটি আপডেট রাখুন।
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="container-fluid px-3">
 
         <div id="bookmarkSectionWrapper" style="display: none;">
             <div class="section-main-title text-warning"><i class="fa-solid fa-heart me-1"></i> My Bookmarked Channels</div>
-            <div class="circle-channels-row" id="bookmarkedChannelsContainer">
-                </div>
+            <div class="circle-channels-row" id="bookmarkedChannelsContainer"></div>
         </div>
 
-        <div class="section-main-title">Sports Channels</div>
-        <div class="circle-channels-row" id="sportsRow">
+        <div id="dynamicContentWrapper">
             
-            <div class="channel-circle-card" data-name="bd vs aus cricket live match">
-                <div class="fav-heart-btn" onclick="toggleBookmark('ch1', 'BD vs AUS', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/tsports.png', 'UC8_zZfD6z7O2I7S0fEAsDVA')"><i class="fa-solid fa-heart" id="heart-ch1"></i></div>
-                <div class="logo-circle-frame" onclick="playChannel('BD vs AUS Live Match', 'UC8_zZfD6z7O2I7S0fEAsDVA')">
-                    <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/tsports.png" alt="T Sports">
+            <div class="category-section" id="sec-sports">
+                <div class="section-main-title">Sports Channels</div>
+                <div class="circle-channels-row">
+                    <div class="channel-circle-card" data-name="ban vs aus cricket live match">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('ch1', 'BAN vs AUS', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/tsports.png', 'UC8_zZfD6z7O2I7S0fEAsDVA')"><i class="fa-solid fa-heart" id="heart-ch1"></i></div>
+                        <div class="logo-circle-frame" onclick="playChannel('BAN vs AUS Live Match', 'UC8_zZfD6z7O2I7S0fEAsDVA')">
+                            <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/tsports.png" alt="T Sports">
+                        </div>
+                        <div class="channel-label-name">BAN vs AUS</div>
+                    </div>
+                    <div class="channel-circle-card" data-name="sony sports 1 hd">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('ch2', 'Sony Sports 1', 'https://placehold.co/100x100/222/fff?text=SONY+1', 'UC6_Y77FbtA76A96E49E1p6A')"><i class="fa-solid fa-heart" id="heart-ch2"></i></div>
+                        <div class="logo-circle-frame" onclick="playChannel('Sony Sports 1', 'UC6_Y77FbtA76A96E49E1p6A')">
+                            <img src="https://placehold.co/100x100/222/fff?text=SONY+1" alt="Sony 1">
+                        </div>
+                        <div class="channel-label-name">Sony Sports 1</div>
+                    </div>
                 </div>
-                <div class="channel-label-name">BD vs AUS</div>
             </div>
 
-            <div class="channel-circle-card" data-name="sony sports 1 hd">
-                <div class="fav-heart-btn" onclick="toggleBookmark('ch2', 'Sony Sports 1', 'https://placehold.co/100x100/222/fff?text=SONY+1', 'UC6_Y77FbtA76A96E49E1p6A')"><i class="fa-solid fa-heart" id="heart-ch2"></i></div>
-                <div class="logo-circle-frame" onclick="playChannel('Sony Sports 1', 'UC6_Y77FbtA76A96E49E1p6A')">
-                    <img src="https://placehold.co/100x100/222/fff?text=SONY+1" alt="Sony 1">
+            <div class="category-section" id="sec-livetv">
+                <div class="section-main-title">বাংলাদেশি চ্যানেল</div>
+                <div class="circle-channels-row">
+                    <div class="channel-circle-card" data-name="jamuna tv যমুনা টিভি">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('ch3', 'যমুনা টিভি', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/jamunatv.png', 'UCN6sm8iHiPd0cnoUardDAnw')"><i class="fa-solid fa-heart" id="heart-ch3"></i></div>
+                        <div class="logo-circle-frame" onclick="playChannel('যমুনা টিভি', 'UCN6sm8iHiPd0cnoUardDAnw')">
+                            <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/jamunatv.png" alt="Jamuna TV">
+                        </div>
+                        <div class="channel-label-name">যমুনা টিভি</div>
+                    </div>
+                    <div class="channel-circle-card" data-name="somoy tv সময় টিভি">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('ch4', 'সময় টিভি', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/somoytv.png', 'UCxHoBXkY88Tb8z1Ssj6CWsQ')"><i class="fa-solid fa-heart" id="heart-ch4"></i></div>
+                        <div class="logo-circle-frame" onclick="playChannel('সময় টিভি', 'UCxHoBXkY88Tb8z1Ssj6CWsQ')">
+                            <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/somoytv.png" alt="Somoy TV">
+                        </div>
+                        <div class="channel-label-name">সময় টিভি</div>
+                    </div>
+                    <div class="channel-circle-card" data-name="ntv ntv এনটিভি">
+                        <div class="fav-heart-btn" onclick="toggleBookmark('ch5', 'NTV', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/ntv.png', 'UCG664uU_Isk0v_G_bK0s7Xg')"><i class="fa-solid fa-heart" id="heart-ch5"></i></div>
+                        <div class="logo-circle-frame" onclick="playChannel('এনটিভি (NTV)', 'UCG664uU_Isk0v_G_bK0s7Xg')">
+                            <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/ntv.png" alt="NTV">
+                        </div>
+                        <div class="channel-label-name">NTV</div>
+                    </div>
                 </div>
-                <div class="channel-name channel-label-name">Sony Sports 1</div>
             </div>
 
-        </div>
-
-        <div class="section-main-title">বাংলাদেশি চ্যানেল</div>
-        <div class="circle-channels-row" id="banglaRow">
-            
-            <div class="channel-circle-card" data-name="jamuna tv যমুনা টিভি">
-                <div class="fav-heart-btn" onclick="toggleBookmark('ch3', 'যমুনা টিভি', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/jamunatv.png', 'UCN6sm8iHiPd0cnoUardDAnw')"><i class="fa-solid fa-heart" id="heart-ch3"></i></div>
-                <div class="logo-circle-frame" onclick="playChannel('যমুনা টিভি', 'UCN6sm8iHiPd0cnoUardDAnw')">
-                    <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/jamunatv.png" alt="Jamuna TV">
+            <div class="category-section" id="sec-drama">
+                <div class="section-main-title">Bangla Drama Special</div>
+                <div class="circle-channels-row">
+                    <div class="channel-circle-card" data-name="bangla new drama নাটক">
+                        <div class="logo-circle-frame" onclick="playChannel('নতুন বাংলা নাটক ট্রেইলার', 'UCvC4ToK6X2y7Xm9H5m9eXgQ')">
+                            <img src="https://placehold.co/100x100/4a0e4e/fff?text=DRAMA" alt="Drama">
+                        </div>
+                        <div class="channel-label-name">EID Drama 2026</div>
+                    </div>
                 </div>
-                <div class="channel-label-name">যমুনা টিভি</div>
             </div>
 
-            <div class="channel-circle-card" data-name="somoy tv সময় টিভি">
-                <div class="fav-heart-btn" onclick="toggleBookmark('ch4', 'সময় টিভি', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/somoytv.png', 'UCxHoBXkY88Tb8z1Ssj6CWsQ')"><i class="fa-solid fa-heart" id="heart-ch4"></i></div>
-                <div class="logo-circle-frame" onclick="playChannel('সময় টিভি', 'UCxHoBXkY88Tb8z1Ssj6CWsQ')">
-                    <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/somoytv.png" alt="Somoy TV">
+            <div class="category-section" id="sec-movies">
+                <div class="section-main-title">Blockbuster Movies</div>
+                <div class="circle-channels-row">
+                    <div class="channel-circle-card" data-name="bangla cinema movie সিনেমা">
+                        <div class="logo-circle-frame" onclick="playChannel('সুপারহিট বাংলা সিনেমা', 'UCxHoBXkY88Tb8z1Ssj6CWsQ')">
+                            <img src="https://placehold.co/100x100/00f2fe/000?text=MOVIES" alt="Movie">
+                        </div>
+                        <div class="channel-label-name">Bangla Movie</div>
+                    </div>
                 </div>
-                <div class="channel-label-name">সময় টিভি</div>
-            </div>
-
-            <div class="channel-circle-card" data-name="ntv ntv এনটিভি">
-                <div class="fav-heart-btn" onclick="toggleBookmark('ch5', 'NTV', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/ntv.png', 'UCG664uU_Isk0v_G_bK0s7Xg')"><i class="fa-solid fa-heart" id="heart-ch5"></i></div>
-                <div class="logo-circle-frame" onclick="playChannel('এনটিভি (NTV)', 'UCG664uU_Isk0v_G_bK0s7Xg')">
-                    <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/ntv.png" alt="NTV">
-                </div>
-                <div class="channel-label-name">NTV</div>
-            </div>
-
-            <div class="channel-circle-card" data-name="news 24 নিউজ ২৪">
-                <div class="fav-heart-btn" onclick="toggleBookmark('ch6', 'News 24', 'https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/news24.png', 'UCG_69mO_b_X0sZ8-w3jIn9g')"><i class="fa-solid fa-heart" id="heart-ch6"></i></div>
-                <div class="logo-circle-frame" onclick="playChannel('নিউজ ২৪', 'UCG_69mO_b_X0sZ8-w3jIn9g')">
-                    <img src="https://raw.githubusercontent.com/theonlyandone/IPTV-Bangladesh/main/logos/news24.png" alt="News 24">
-                </div>
-                <div class="channel-label-name">News 24</div>
             </div>
 
         </div>
@@ -375,30 +413,55 @@
     <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-content-custom">
-                <div class="modal-header border-dark">
-                    <h5 class="modal-title fw-bold text-info" id="authModalTitle">HASTV অ্যাকাউন্টে সাইন-ইন করুন</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-shadow="none" data-bs-dispels="modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-info" id="authModalTitle">অ্যাকাউন্ট তৈরি করুন</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-shadow="none" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div id="authFormWrapper">
-                        <form id="loginForm" onsubmit="handleAuthSubmit(event)">
+                        <form id="profileRegisterForm" onsubmit="handleAuthSubmit(event)">
                             <div class="mb-3">
-                                <label class="form-label small text-muted">আপনার নাম</label>
-                                <input type="text" class="form-control modal-input-style" id="authName" required placeholder="যেমন: Md Nijam">
+                                <label class="form-label small text-muted">পূর্ণ নাম</label>
+                                <input type="text" class="form-control modal-input-style" id="regName" required placeholder="যেমন: Md Nijam">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label small text-muted">ইমেইল ঠিকানা</label>
-                                <input type="email" class="form-control modal-input-style" id="authEmail" required placeholder="name@example.com">
+                                <input type="email" class="form-control modal-input-style" id="regEmail" required placeholder="name@example.com">
                             </div>
-                            <button type="submit" class="btn btn-info w-100 fw-bold rounded-pill text-dark">অ্যাকাউন্ট তৈরি / লগইন করুন</button>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">মোবাইল নাম্বার</label>
+                                <input type="tel" class="form-control modal-input-style" id="regPhone" placeholder="+88017XXXXXXXX">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">জেন্ডার (লিঙ্গ)</label>
+                                <select class="form-select modal-input-style" id="regGender">
+                                    <option value="Male">পুরুষ</option>
+                                    <option value="Female">মহিলা</option>
+                                    <option value="Other">অন্যান্য</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-info w-100 fw-bold rounded-pill text-dark">সংরক্ষণ ও লগইন করুন</button>
                         </form>
                     </div>
-                    <div id="userProfileWrapper" style="display: none;" class="text-center py-3">
-                        <i class="fa-solid fa-circle-user text-info mb-3" style="font-size: 4rem;"></i>
-                        <h4 class="fw-bold" id="loggedInUserName">User Name</h4>
-                        <p class="text-muted small" id="loggedInUserEmail">user@example.com</p>
-                        <span class="badge bg-success mb-4 px-3 py-2 rounded-pill">Premium Subscriber</span>
-                        <button class="btn btn-outline-danger w-100 fw-bold rounded-pill" onclick="handleLogout()">লগআউট করুন</button>
+                    
+                    <div id="userProfileWrapper" style="display: none;">
+                        <div class="text-center py-2 mb-3">
+                            <i class="fa-solid fa-circle-user text-info" style="font-size: 3.5rem;"></i>
+                            <h4 class="fw-bold mt-2 mb-0" id="profViewName">User Name</h4>
+                            <span class="badge bg-info text-dark mt-1 px-3 py-1 rounded-pill small">Premium Member</span>
+                        </div>
+                        <hr class="border-secondary">
+                        <div class="mb-3">
+                            <strong>ইমেইল:</strong> <span id="profViewEmail" class="text-muted"></span>
+                        </div>
+                        <div class="mb-3">
+                            <strong>ফোন নাম্বার:</strong> <span id="profViewPhone" class="text-muted"></span>
+                        </div>
+                        <div class="mb-3">
+                            <strong>জেন্ডার:</strong> <span id="profViewGender" class="text-muted"></span>
+                        </div>
+                        <button class="btn btn-sm btn-outline-info w-100 mb-2 rounded-pill" onclick="enableProfileEdit()">তথ্য পরিবর্তন বা আপডেট করুন</button>
+                        <button class="btn btn-sm btn-outline-danger w-100 rounded-pill" onclick="handleLogout()">লগআউট</button>
                     </div>
                 </div>
             </div>
@@ -408,31 +471,54 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // বুকমার্ক ডাটাবেস হ্যান্ডলার (Local Storage)
-        let bookmarks = JSON.parse(localStorage.getItem('hastv_bookmarks')) || [];
+        // বুকমার্ক ও সেশন ডাটা হ্যান্ডলার
+        let bookmarks = JSON.parse(localStorage.getItem('nijambd_bookmarks')) || [];
 
         document.addEventListener("DOMContentLoaded", function() {
             renderBookmarks();
             checkUserSession();
         });
 
-        // ভিডিও চ্যানেল চেঞ্জ বাটন স্ক্রিপ্ট
+        // ভিডিও প্লেয়ার চেঞ্জ ফাংশন
         function playChannel(name, channelId) {
             var player = document.getElementById('mainStreamingPlayer');
             player.src = "https://www.youtube.com/embed/live_stream?channel=" + channelId + "&autoplay=1";
-            document.getElementById('currentPlayingLabel').innerHTML = `<i class="fa-solid fa-circle-play me-1"></i> বর্তমানে চলছে: ${name}`;
+            document.getElementById('currentPlayingLabel').innerHTML = `<i class="fa-solid fa-circle-play me-1 text-warning"></i> বর্তমানে চলছে: ${name}`;
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // হোম বাটন স্ক্রিপ্ট
+        // হোম বাটন ফাংশন (১০০% সচল ও রিসেট)
         function goToHome() {
-            playChannel('BD vs AUS Live Match', 'UC8_zZfD6z7O2I7S0fEAsDVA');
+            playChannel('BAN vs AUS Live Match', 'UC8_zZfD6z7O2I7S0fEAsDVA');
             document.getElementById('channelSearchInput').value = '';
             filterChannels();
+            switchCategory('all', document.querySelector('#categoryTabMenu a'));
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // সার্চ বক্স টগল ফাংশন
+        // ক্যাটাগরি ট্যাব ফিল্টারিং ফাংশন (Live TV, Sports, Drama, Movies)
+        function switchCategory(category, element) {
+            // অ্যাক্টিভ ট্যাব স্টাইল চেঞ্জ
+            let tabs = document.querySelectorAll('.tab-item-link');
+            tabs.forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+
+            // সব সেকশন দেখানো বা হাইড করা
+            let sections = document.querySelectorAll('.category-section');
+            sections.forEach(sec => {
+                if (category === 'all') {
+                    sec.style.display = 'block';
+                } else {
+                    if (sec.id === 'sec-' + category) {
+                        sec.style.display = 'block';
+                    } else {
+                        sec.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // সার্চ বক্স টগল
         function toggleSearchBox() {
             var box = document.getElementById('searchBoxContainer');
             if (box.style.display === 'block') {
@@ -443,7 +529,7 @@
             }
         }
 
-        // সার্চ লাইভ ফিল্টারিং স্ক্রিপ্ট
+        // লাইভ সার্চ ফিল্টারিং
         function filterChannels() {
             let input = document.getElementById('channelSearchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('channel-circle-card');
@@ -458,27 +544,22 @@
             }
         }
 
-        // বুকমার্ক / ফেভারিট টগল করার মেইন ফাংশন
+        // বুকমার্ক / ফেভারিট সিস্টেম
         function toggleBookmark(id, name, logo, channelId) {
             let index = bookmarks.findIndex(b => b.id === id);
             if (index > -1) {
                 bookmarks.splice(index, 1);
-                document.getElementById('heart-' + id).className = "fa-solid fa-heart";
-                document.getElementById('heart-' + id).style.color = "#ff4757";
             } else {
                 bookmarks.push({id, name, logo, channelId});
-                document.getElementById('heart-' + id).style.color = "#ff4757";
             }
-            localStorage.setItem('hastv_bookmarks', JSON.stringify(bookmarks));
+            localStorage.setItem('nijambd_bookmarks', JSON.stringify(bookmarks));
             renderBookmarks();
         }
 
-        // বুকমার্ক করা চ্যানেলগুলো স্ক্রিনে রেন্ডার করার স্ক্রিপ্ট
         function renderBookmarks() {
             let container = document.getElementById('bookmarkedChannelsContainer');
             let section = document.getElementById('bookmarkSectionWrapper');
             
-            // সব হার্ট আইকন প্রথমে রিসেট করা
             let allHearts = document.querySelectorAll('.fav-heart-btn i');
             allHearts.forEach(h => h.style.color = '#fff');
 
@@ -491,7 +572,6 @@
             container.innerHTML = '';
 
             bookmarks.forEach(ch => {
-                // মেইন লিস্টের হার্ট লাল করা
                 let mainHeart = document.getElementById('heart-' + ch.id);
                 if(mainHeart) mainHeart.style.color = '#ff4757';
 
@@ -512,41 +592,67 @@
             if(section.style.display === 'block') {
                 section.scrollIntoView({behavior: 'smooth'});
             } else {
-                alert('আপনার লিস্টে কোনো ফেভারিট চ্যানেল যোগ করা নেই! চ্যানেলের হার্ট (❤️) আইকনে ক্লিক করে যুক্ত করুন।');
+                alert('আপনার লিস্টে কোনো ফেভারিট চ্যানেল যোগ করা নেই!');
             }
         }
 
-        // অ্যাকাউন্ট সাইন-ইন প্রসেসিং স্ক্রিপ্ট
+        // প্রোফাইল আপডেট ও সাইন-আপ হ্যান্ডলিং
         function handleAuthSubmit(e) {
             e.preventDefault();
-            let name = document.getElementById('authName').value;
-            let email = document.getElementById('authEmail').value;
+            let name = document.getElementById('regName').value;
+            let email = document.getElementById('regEmail').value;
+            let phone = document.getElementById('regPhone').value || 'দেওয়া হয়নি';
+            let gender = document.getElementById('regGender').value;
 
-            let user = { name, email };
-            localStorage.setItem('hastv_user', JSON.stringify(user));
+            let user = { name, email, phone, gender };
+            localStorage.setItem('nijambd_user', JSON.stringify(user));
             checkUserSession();
+            
+            // মোডাল হাইড করার অটো বুটস্ট্রাপ ট্রিগার
+            let authModalEl = document.getElementById('authModal');
+            let modal = bootstrap.Modal.getInstance(authModalEl);
+            modal.hide();
         }
 
         function checkUserSession() {
-            let session = localStorage.getItem('hastv_user');
+            let session = localStorage.getItem('nijambd_user');
             if (session) {
                 let user = JSON.parse(session);
                 document.getElementById('authFormWrapper').style.display = 'none';
                 document.getElementById('userProfileWrapper').style.display = 'block';
-                document.getElementById('authModalTitle').innerText = "আপনার প্রোফাইল";
-                document.getElementById('loggedInUserName').innerText = user.name;
-                document.getElementById('loggedInUserEmail').innerText = user.email;
+                document.getElementById('authModalTitle').innerText = "আপনার প্রোফাইল প্যানেল";
+                
+                document.getElementById('profViewName').innerText = user.name;
+                document.getElementById('profViewEmail').innerText = user.email;
+                document.getElementById('profViewPhone').innerText = user.phone;
+                document.getElementById('profViewGender').innerText = user.gender === 'Male' ? 'পুরুষ' : (user.gender === 'Female' ? 'মহিলা' : 'অন্যান্য');
+                
                 document.getElementById('userAccountBtn').className = "fa-solid fa-user-check text-success";
             } else {
                 document.getElementById('authFormWrapper').style.display = 'block';
                 document.getElementById('userProfileWrapper').style.display = 'none';
-                document.getElementById('authModalTitle').innerText = "HASTV অ্যাকাউন্টে সাইন-ইন করুন";
+                document.getElementById('authModalTitle').innerText = "অ্যাকাউন্ট তৈরি করুন";
                 document.getElementById('userAccountBtn').className = "fa-solid fa-circle-user";
             }
         }
 
+        function enableProfileEdit() {
+            let session = localStorage.getItem('nijambd_user');
+            if (session) {
+                let user = JSON.parse(session);
+                document.getElementById('regName').value = user.name;
+                document.getElementById('regEmail').value = user.email;
+                document.getElementById('regPhone').value = user.phone === 'দেওয়া হয়নি' ? '' : user.phone;
+                document.getElementById('regGender').value = user.gender;
+                
+                document.getElementById('authFormWrapper').style.display = 'block';
+                document.getElementById('userProfileWrapper').style.display = 'none';
+                document.getElementById('authModalTitle').innerText = "প্রোফাইল তথ্য আপডেট করুন";
+            }
+        }
+
         function handleLogout() {
-            localStorage.removeItem('hastv_user');
+            localStorage.removeItem('nijambd_user');
             checkUserSession();
         }
     </script>
